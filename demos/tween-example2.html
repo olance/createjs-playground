@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Playground</title>
+
+    <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/libs/easeljs-0.4.2.min.js"></script>
+    <script type="text/javascript" src="js/libs/tweenjs-0.2.0.min.js"></script>
+
+    <script type="text/javascript" src="js/circles.js"></script>
+
+    <script type="text/javascript">
+        (function($) {
+
+            var $canvas = null;
+            var stage   = null;
+
+            $(document).ready(function() {
+                $canvas = $("#stage");
+                updateCanvasSize();
+
+                // Create new EaselJS stage from canvas
+                stage = new Stage($canvas[0]);
+
+                // Create our circles compound object (see js/circles.js) and add it to the stage
+                var circles = new playground.Circles(25);
+                stage.addChild(circles);
+
+                stage.onMouseUp = function(event) {
+                    circles.moveTo(stage.mouseX, stage.mouseY);
+                };
+
+                // Set the stage as listener on the Ticker, so that stage.update() is called periodically
+                Ticker.addListener(stage);
+            });
+
+            function updateCanvasSize() {
+                $canvas.attr("width", $(window).width());
+                $canvas.attr("height", $(window).height());
+            }
+
+            $(window).resize(function() {
+                updateCanvasSize();
+                stage.update();
+            });
+
+        })(jQuery);
+    </script>
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="stage"></canvas>
+
+</body>
+</html>
