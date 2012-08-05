@@ -4,6 +4,8 @@
     <title>CreateJS Playground</title>
 
     <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
     <link href="css/main.css" type="text/css" rel="stylesheet"/>
 </head>
 
@@ -16,17 +18,17 @@
         <p>This is a small playground to get my hands on EaselJS, TweenJS, and other libs from CreateJS.</p>
         <p>I'll update it with my different tests in using those libs so that it can maybe serve as a tutorial for others.</p>
     </div>
+
+    <div id="menu">
+        <ul>
+            <li class="active">
+                <a href="demos/tween-example2.html" target="playground-content">TweenJS Sample #2</a>
+            </li>
+        </ul>
+    </div>
 </div>
 
-<div id="playground">
-    <ul>
-        <li>
-            <a href="demos/tween-example2.html" target="playground-content">TweenJS Sample #2</a>
-        </li>
-    </ul>
-
-    <iframe id="playground-content" src="demos/tween-example2.html" frameborder="0" width="800" height="533"></iframe>
-</div>
+<iframe id="playground-content" src="demos/tween-example2.html" frameborder="0" width="800" height="533"></iframe>
 
 <div id="footer">
     All code released under the MIT License. See <a href="http://www.github.com/olance/createjs-playground">Github project</a>.
