@@ -15,6 +15,11 @@
             var $canvas = null;
             var stage   = null;
 
+            function updateCanvasSize() {
+                $canvas.attr("width", $(window).width());
+                $canvas.attr("height", $(window).height());
+            }
+
             $(document).ready(function() {
                 $canvas = $("#stage");
                 updateCanvasSize();
@@ -33,11 +38,6 @@
                 // Set the stage as listener on the Ticker, so that stage.update() is called periodically
                 Ticker.addListener(stage);
             });
-
-            function updateCanvasSize() {
-                $canvas.attr("width", $(window).width());
-                $canvas.attr("height", $(window).height());
-            }
 
             $(window).resize(function() {
                 updateCanvasSize();
