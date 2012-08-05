@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Playground</title>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../js/libs/easeljs-0.4.2.min.js"></script>
+    <script type="text/javascript" src="../js/libs/tweenjs-0.2.0.min.js"></script>
+
+    <script type="text/javascript" src="js/circles.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+    <link href="main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div id="description">
+    <p class="center"><b>Click anywhere to move the circles</b></p>
+    <p>This is a “new” implementation of the sample #2 given by CreateJS with the TweenJS library.</p>
+
+    <p>
+        The main difference resides in the creation of a <code>Circles</code> class that handles the initialization,
+        drawing and tweening of the circles.
+    </p>
+
+    <p>
+        This sample demonstrates:
+    </p>
+
+    <ul>
+        <li>EaselJS basic usage (<code>Stage</code>, <code>Ticker</code>)</li>
+        <li>Subclassing EaselJS <code>Container</code> class</li>
+        <li>Animating the DOM with the <code>DOMElement</code> class (try clicking on this box)</li>
+        <li>Basic usage of TweenJS to smoothly move things around</li>
+    </ul>
+
+    <p>Full source code <a href="http://www.github.com/olance/createjs-playground/" target="_blank">on Github</a></p>
+</div>
+
+<canvas id="stage"></canvas>
+
+<div class="clear"></div>
+
+</body>
+</html>
