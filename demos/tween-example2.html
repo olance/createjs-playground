@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Playground</title>
 
@@ -16,8 +16,8 @@
             var stage   = null;
 
             function updateCanvasSize() {
-                $canvas.attr("width", $(window).width());
-                $canvas.attr("height", $(window).height());
+                $canvas.attr("width", $(window).outerWidth());
+                $canvas.attr("height", $(window).outerHeight());
             }
 
             $(document).ready(function() {
@@ -26,6 +26,7 @@
 
                 // Create new EaselJS stage from canvas
                 stage = new Stage($canvas[0]);
+
 
                 // Create our circles compound object (see js/circles.js) and add it to the stage
                 var circles = new playground.Circles(25);
@@ -55,12 +56,81 @@
 
         body {
             background-color: #333;
+
+            font-family: "HelveticaNeue-Light", "HelveticaNeue Light", "Arial";
+            font-weight: 200;
+            color: white;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        #description {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+
+            width: 300px;
+            padding: 20px;
+
+            font-size: 0.9em;
+
+            background-color: #111;
+            opacity: 0.75;
+
+            text-align: justify;
+            line-height: 1.3em;
+
+            border-radius: 2px;
+        }
+
+        #description p {
+            margin-top: 10px;
+        }
+
+        #description ul {
+            margin-left: 2em;
+            list-style-type: circle;
+        }
+
+        #description a:link, #description a:visited {
+            text-decoration: none;
+            color: #2794DD;
+        }
+
+        #description a:hover, #description a:active {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
+<div id="description">
+    <p class="center"><b>Click anywhere to move the circles</b></p>
+    <p>This is a “new” implementation of the sample #2 given by CreateJS with the TweenJS library.</p>
+
+    <p>
+        The main difference resides in the creation of a <code>Circles</code> class that handles the initialization,
+        drawing and tweening of the circles.
+    </p>
+
+    <p>
+        This sample demonstrates:
+    </p>
+
+    <ul>
+        <li>EaselJS basic usage (<code>Stage</code>, <code>Ticker</code>)</li>
+        <li>Subclassing EaselJS <code>Container</code> class</li>
+        <li>Basic usage of TweenJS to smoothly move things around</li>
+    </ul>
+
+    <p>Full source code <a href="http://www.github.com/olance/createjs-playground/" target="_blank">on Github</a></p>
+</div>
+
 <canvas id="stage"></canvas>
+
+<div class="clear"></div>
 
 </body>
 </html>
