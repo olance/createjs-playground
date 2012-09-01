@@ -13,7 +13,7 @@
         updateCanvasSize();
 
         // Create new EaselJS stage from canvas
-        stage = new Stage($canvas[0]);
+        stage = new createjs.Stage($canvas[0]);
 
 
         // Create our circles compound object (see js/circles.js) and add it to the stage
@@ -22,7 +22,7 @@
 
         // Position the description div as an EaselJS DOM element
         var $desc = $("#description");
-        var desc = new DOMElement($desc[0]);
+        var desc = new createjs.DOMElement($desc[0]);
         desc.x = 30;
         desc.y = 30;
         desc.alpha = 0.75;
@@ -45,12 +45,12 @@
                     }
                 }
 
-                Tween.get(desc, { override:true }).to(to, 500, Ease.cubicInOut);
+                createjs.Tween.get(desc, { override:true }).to(to, 500, createjs.Ease.cubicInOut);
             }
         };
 
         // Set the stage as listener on the Ticker, so that stage.update() is called periodically
-        Ticker.addListener(stage);
+        createjs.Ticker.addListener(stage);
     });
 
     $(window).resize(function () {

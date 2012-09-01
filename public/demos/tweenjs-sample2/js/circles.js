@@ -3,7 +3,7 @@
     var Circles = function(circlesCount) {
         this.initialize(circlesCount);
     };
-    var p = Circles.prototype = new Container();
+    var p = Circles.prototype = new createjs.Container();
 
     // PUBLIC PROPERTIES
     p.strokeWidth = 15;
@@ -47,7 +47,7 @@
         // Create as many concentric circles as requested in the constructor
         for(var idx = 0; idx < this._circlesCount; idx++)
         {
-            var circle = new Shape();
+            var circle = new createjs.Shape();
             circle.graphics.setStrokeStyle(this.strokeWidth);
             circle.graphics.beginStroke("#113355");
             circle.graphics.drawCircle(0, 0, (idx + 1) * 4); // From the smallest to the largest
@@ -70,7 +70,7 @@
 
         // Otherwise, create and start (automatically) a new tween with the next position to go to
         var to = this._tweens[circleIdx][0];
-        Tween.get(this.children[circleIdx]).to(to, (0.5 + circleIdx * 0.04) * 1000, Ease.cubicInOut).call(this._tweenComplete, [circleIdx], this);
+        createjs.Tween.get(this.children[circleIdx]).to(to, (0.5 + circleIdx * 0.04) * 1000, createjs.Ease.cubicInOut).call(this._tweenComplete, [circleIdx], this);
     };
 
     // Proceed to next move for the circle at given index
