@@ -9,6 +9,16 @@ body {
     color: #333;
 }
 
+
+a:link, a:visited {
+    text-decoration: none;
+    color: #2794DD;
+}
+
+a:hover, a:active {
+    text-decoration: underline;
+}
+
 #header {
     text-align: center;
     padding: 10px 0 0;
