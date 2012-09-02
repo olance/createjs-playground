@@ -234,7 +234,7 @@ this.playground = this.playground || {};
 		
 		p._updateProgressBar = function(progress) {
 			this._progressBar.setProgress(progress);
-			$("#photo-wrapper #progress #progress-value").text(String(progress * 100));
+			$("#photo-wrapper #progress #progress-value").text(String(Math.floor(progress * 100)));
 		};
 		
 		
