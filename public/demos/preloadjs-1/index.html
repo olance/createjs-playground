@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <title>Playground</title>
+    
+        <meta charset="utf-8"/>
+    
+        <script type="text/javascript" src="../../js/jquery-1.8.1.min.js"></script>
+        <script type="text/javascript" src="../js/libs/preloadjs-0.2.0.min.js"></script>
+
+        <script type="text/javascript" src="js/file_loader.js"></script>
+        <script type="text/javascript" src="js/photo.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    
+        <link href="../css/shared.css" rel="stylesheet" type="text/css"/>
+        <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div id="thumbnails">
+            
+        </div>
+
+        <div id="manifest-load" class="hidden">
+            <p>Loading photos list...</p>
+            <p><img src="images/spinner.gif" alt="spinner"/></p>
+        </div>
+        
+        <div id="description">
+            <p>
+                This sample uses a jQuery wrapper around <code>PreloadJS</code> to asynchronously load several things: 
+            </p>
+
+            <ul>
+                <li>A "manifest.json" file containing paths of photos to load</li>
+                <li>All the thumbnails images listed in the manifest</li>
+                <li>All the full-size photos listed in the manifest</li>
+            </ul>
+
+            <p>
+                Once the manifest is loaded, thumbnails are added to the DOM and begin loading in the background, along
+                with the full-size photos.<br>
+                The thumbnails are faded from <code>0.3</code> to <code>1.0</code> while their corresponding full-size 
+                photo is loading.
+            </p>
+        
+            <p>
+                This sample demonstrates:
+            </p>
+        
+            <ul>
+                <li>Javascript OOP with namespacing</li>
+                <li>Using <code>$.Deferred</code> for asynchronous callbacks</li>
+                <li>Usage of <code>PreloadJS</code></li>
+            </ul>
+        
+            <p>Full source code <a href="https://github.com/olance/createjs-playground/tree/master/demos/preloadjs-1"
+                                   target="_blank">on Github</a></p>
+
+            <p class="center">
+                <b><a href="#" id="hide-description">Hide me!</a></b>
+            </p>
+
+        </div>
+
+        <div id="photo-wrapper" class="hidden">
+            <div id="photo"></div>
+            
+            <div id="close-info">
+                <small>Click to close</small>
+            </div>
+        </div>
+    
+    </body>
+</html>
