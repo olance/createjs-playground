@@ -6,6 +6,18 @@ I'll update it with my different tests in using those libs so that it can maybe 
 
 License
 ========
+
+Photos
+------
+Unless otherwise specified, all photos included in the demos are © Olivier Lance and **MAY NOT** be copied, modified, 
+merged, published, distributed, sublicensed and/or sold without my (Olivier Lance) prior written permission.
+
+As an exception to the above statement, you are granted the right to copy and use the photos when forking this project 
+on GitHub and in this context only.  
+
+Code
+----
+
 All this code is released under the MIT license, so you can do pretty much anything with it.
 
 > Copyright (c) 2010 Olivier Lance
