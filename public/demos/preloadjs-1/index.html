@@ -10,6 +10,7 @@
 
         <script type="text/javascript" src="js/file_loader.js"></script>
         <script type="text/javascript" src="js/photo.js"></script>
+        <script type="text/javascript" src="js/progressbar.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
     
         <link href="../css/shared.css" rel="stylesheet" type="text/css"/>
@@ -63,6 +64,10 @@
         </div>
 
         <div id="photo-wrapper" class="hidden">
+            <div id="progress">
+                <p>Loading: <span id="progress-value">0</span>%</p>
+            </div>
+            
             <div id="photo"></div>
             
             <div id="close-info">

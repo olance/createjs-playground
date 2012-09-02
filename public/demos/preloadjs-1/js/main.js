@@ -14,6 +14,7 @@ this.playground = this.playground || {};
 		
 		p._photosLoader = null;
 		p._photos = null;
+		p._progressBar = null;
 		
 		p._currentPhotoID = null;
 		
@@ -21,6 +22,9 @@ this.playground = this.playground || {};
 		p.initialize = function() {
 			p._thumbnails = {};
 			p._photos = {};
+			
+			p._progressBar = new playground.ProgressBar();
+			p._progressBar.dom().appendTo($("#photo-wrapper #progress"));
 			
 			$("#photo-wrapper").click(playground.proxy(this.closeFullView, this));
 		};
@@ -49,10 +53,21 @@ this.playground = this.playground || {};
 				$photoWrapper = $("#photo-wrapper"),
 				$photoContainer = $photoWrapper.find("#photo");
 
+			// Show progress bar only when we're waiting for the full-size photo
+			if(showThumb)
+			{
+				$("#photo-wrapper #progress").show();
+				this._updateProgressBar(photo.progress());
+			}
+			else
+			{
+				$("#photo-wrapper #progress").hide();
+			}
+			
 			this._blockScrolling(true);
 			$photoWrapper.fadeIn();
 
-			// Place the image in our photo container and clone it if we display the thumbnail, as we don't want it to 
+			// Place the image in our photo container and clone it when we display its thumbnail, as we don't want it to 
 			// disappear from the thumbnails mosaic
 			this._placeImage(image, $photoContainer, showThumb);
 		};
@@ -194,6 +209,7 @@ this.playground = this.playground || {};
 					if(this._currentPhotoID === event.fileID)
 					{
 						this._placeImage(photo, $("#photo-wrapper #photo"));
+						$("#photo-wrapper #progress").hide();
 					}
 					
 					break;
@@ -203,16 +219,22 @@ this.playground = this.playground || {};
 		
 		p._updatePhotoProgress = function(photo) {
 			var thumb = this._thumbnails[photo.id()],
-				$dom = thumb.dom();
+				$dom = thumb.dom(),
+				progress = photo.progress();
 			
 			// Map photo.progress from [0.0 ; 1.0] into [0.3 ; 1.0]
 			// fade = 0.3 + (1.0 - 0.3) * (progress - 0.0) / (1.0 - 0.0)
-			$dom.fadeTo(200, 0.3 + 0.7 * photo.progress());
+			$dom.fadeTo(200, 0.3 + 0.7 * progress);
 			
 			if(this._currentPhotoID === photo.id())
 			{
-				
+				this._updateProgressBar(progress);
 			}
+		};
+		
+		p._updateProgressBar = function(progress) {
+			this._progressBar.setProgress(progress);
+			$("#photo-wrapper #progress #progress-value").text(String(progress * 100));
 		};
 		
 		
