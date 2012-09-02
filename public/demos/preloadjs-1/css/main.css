@@ -80,6 +80,20 @@ html, body {
     background-color: rgba(17, 17, 17, 0.96);
 }
 
+#photo-wrapper #progress {
+    margin: 10px;
+    font-size: smaller;
+}
+
+#photo-wrapper #progress .playground-progressbar {
+    height: 2px;
+}
+
+#photo-wrapper #progress .playground-progress-value {
+    background-color: white;
+}
+
+
 #photo-wrapper #close-info {
     position: absolute;
     
