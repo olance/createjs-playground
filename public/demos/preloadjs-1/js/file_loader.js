@@ -164,7 +164,7 @@
  * 
  */
 
-this.playground = this.playground || {};
+this.playground = this.playground || {};
 
 (function($) {
 	(function() {
