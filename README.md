@@ -4,7 +4,7 @@ CreateJS Playground
 This is a small playground to get my hands on EaselJS, TweenJS, and other libs from CreateJS.
 I'll update it with my different tests in using those libs so that it can maybe serve as a tutorial for others.
 
-Please not that most (or all) of these demos will use jQuery.
+Please note that most (or all) of these demos will use jQuery.
 
 Available samples
 =================
